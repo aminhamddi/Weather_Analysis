@@ -1,0 +1,159 @@
+---
+title: "Analyse des données météo US1TXGS0046"
+author: "Amine Hamdi"
+format: html
+editor: visual
+---
+# Introduction
+
+Ce projet analyse les données météo provenant de la station **US1TXGS0046** située au **Texas, USA**.  
+Les données incluent des mesures comme température, humidité, vitesse du vent, rayonnement solaire, etc., enregistrées sur plusieurs années.  
+
+Source du dataset : [NOAA Global Historical Weather](https://www.ncei.noaa.gov/access).  
+
+![Carte du Texas](https://gisgeography.com/wp-content/uploads/2013/02/Texas-Map-1536x1455.jpg)  
+*Localisation approximative de la zone étudiée.*
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Installer les packages si nécessaire
+if (!require("tidyverse")) install.packages("tidyverse")
+if (!require("lubridate")) install.packages("lubridate")
+
+# Charger les packages
+library(tidyverse)
+library(lubridate)
+
+# Lire le dataset
+weather <- read_csv("data/US1TXGS0046.csv", show_col_types = FALSE)
+
+```
+## Aperçu du dataset
+
+
+```{R, echo=FALSE}
+knitr::kable(
+  head(weather, 10),
+  caption = "Aperçu des 10 premières observations du dataset météo"
+)
+```
+Dimension du data set :
+
+```{R, echo=FALSE}
+dim(weather)
+```
+
+
+| Colonne               | Type     | Description courte |
+|-----------------------|----------|------------------|
+| STATION               | chr      | Code de la station météo |
+| DATE                  | date     | Date d’observation |
+| LATITUDE              | dbl      | Latitude de la station |
+| LONGITUDE             | dbl      | Longitude de la station |
+| ELEVATION             | dbl      | Altitude de la station (en mètres) |
+| NAME                  | chr      | Nom de la station |
+| PRCP                  | dbl      | Précipitations (mm) |
+| PRCP_ATTRIBUTES       | chr      | Qualité / source des données de PRCP |
+| SNOW                  | dbl      | Quantité de neige (mm) |
+| SNOW_ATTRIBUTES       | chr      | Qualité / source des données de SNOW |
+| DAPR                  | dbl      | Minimum température apparente (°C) |
+| DAPR_ATTRIBUTES       | chr      | Qualité / source des données DAPR |
+| MDPR                  | dbl      | Maximum température apparente (°C) |
+| MDPR_ATTRIBUTES       | chr      | Qualité / source des données MDPR |
+
+```{R}
+summary(weather %>% select(PRCP, SNOW, DAPR, MDPR))
+
+weather %>%
+ggplot(aes(x = DATE, y = PRCP)) +
+geom_line(color = "blue") +
+labs(
+title = "Évolution des précipitations dans le temps",
+x = "Date",
+y = "Précipitations (mm)"
+) +
+theme_minimal()
+
+weather %>%
+ggplot(aes(x = PRCP)) +
+geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+labs(
+title = "Distribution des précipitations",
+x = "Précipitations (mm)",
+y = "Nombre d’observations"
+) +
+theme_minimal()
+
+
+weather %>%
+select(PRCP, SNOW, DAPR, MDPR) %>%
+cor(use = "complete.obs")
+
+```
+# Convertir les colonnes numériques
+
+```{R}
+weather <- weather %>%
+mutate(
+PRCP = as.numeric(PRCP),
+SNOW = as.numeric(SNOW),
+DAPR = as.numeric(DAPR),
+MDPR = as.numeric(MDPR)
+)
+```
+
+Ces statistiques donnent une idée de la tendance centrale et de la dispersion des précipitations.
+
+```{R}
+shapiro_test <- shapiro.test(na.omit(weather$PRCP))
+shapiro_test
+```
+
+# Extraire le mois
+
+```{R}
+weather <- weather %>% mutate(Month = month(DATE))
+```
+
+# Comparer PRCP entre janvier (1) et juillet (7)
+```{R}
+jan_prcp <- weather %>% filter(Month == 1) %>% pull(PRCP)
+jul_prcp <- weather %>% filter(Month == 7) %>% pull(PRCP)
+
+t_test_result <- t.test(jan_prcp, jul_prcp, alternative = "two.sided", var.equal = FALSE)
+t_test_result
+```
+On teste si les précipitations en janvier diffèrent significativement de celles en juillet.
+
+# Régression linéaire simple (MDPR ~ DAPR)
+
+```{R}
+weather_lm <- weather %>%
+drop_na(DAPR, MDPR)
+
+model <- lm(MDPR ~ DAPR, data = weather_lm)
+summary(model)
+```
+
+On étudie la relation entre la température minimale apparente (DAPR) et la maximale apparente (MDPR).
+
+# Visualisation de la régression
+
+```{R}
+ggplot(weather_lm, aes(x = DAPR, y = MDPR)) +
+geom_point(color = "blue", alpha = 0.5) +
+geom_smooth(method = "lm", color = "red") +
+labs(
+title = "Régression linéaire : MDPR en fonction de DAPR",
+x = "DAPR (°C)",
+y = "MDPR (°C)"
+) +
+theme_minimal()
+```
+# Corrélation entre variables
+
+```{R}
+cor(weather_lm$DAPR, weather_lm$MDPR, use = "complete.obs")
+```
+
+La corrélation mesure la force et la direction de la relation linéaire entre DAPR et MDPR.
