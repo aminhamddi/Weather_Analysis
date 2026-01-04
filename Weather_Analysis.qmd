@@ -9,10 +9,14 @@ editor: visual
 Ce projet analyse les données météo provenant de la station **US1TXGS0046** située au **Texas, USA**.  
 Les données incluent des mesures comme température, humidité, vitesse du vent, rayonnement solaire, etc., enregistrées sur plusieurs années.  
 
+L’analyse porte principalement sur les précipitations, la neige et les températures apparentes. Ce travail s’inscrit dans une démarche d’analyse exploratoire des données (EDA) complétée par des tests statistiques et une modélisation linéaire, afin de mettre en évidence des tendances climatiques et d’éventuelles relations entre variables météorologiques.
+
 Source du dataset : [NOAA Global Historical Weather](https://www.ncei.noaa.gov/access).  
 
 ![Carte du Texas](https://gisgeography.com/wp-content/uploads/2013/02/Texas-Map-1536x1455.jpg)  
 *Localisation approximative de la zone étudiée.*
+
+
 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -43,6 +47,8 @@ Dimension du data set :
 dim(weather)
 ```
 
+Le jeu de données contient 3087 observations et 14 variables, chaque ligne correspondant à une journée d’observation pour la station météorologique étudiée.
+
 
 | Colonne               | Type     | Description courte |
 |-----------------------|----------|------------------|
@@ -61,9 +67,22 @@ dim(weather)
 | MDPR                  | dbl      | Maximum température apparente (°C) |
 | MDPR_ATTRIBUTES       | chr      | Qualité / source des données MDPR |
 
+Analyse descriptive des variables météorologiques
+
 ```{R}
 summary(weather %>% select(PRCP, SNOW, DAPR, MDPR))
+```
+::: {.callout-note}
+### Interprétation
 
+- La médiane des précipitations est **nulle**, ce qui indique que la majorité des journées sont sèches.
+- La moyenne élevée et la valeur maximale importante traduisent la présence d’**événements de précipitations extrêmes**.
+- La distribution des précipitations est **fortement asymétrique à droite**.
+- La quasi-absence de neige est cohérente avec la localisation de la station au Texas.
+- Le grand nombre de valeurs manquantes pour les températures apparentes impacte la robustesse des analyses de corrélation et de régression.
+:::
+
+```{R}
 weather %>%
 ggplot(aes(x = DATE, y = PRCP)) +
 geom_line(color = "blue") +
@@ -73,6 +92,17 @@ x = "Date",
 y = "Précipitations (mm)"
 ) +
 theme_minimal()
+```
+
+::: {.callout-note}
+### Analyse
+
+- Le graphique montre une alternance de longues périodes sèches et d’épisodes de fortes précipitations.
+- Ces variations traduisent une pluviométrie irrégulière, typique des climats semi-arides à subtropicaux.
+- Les valeurs manquantes sont automatiquement exclues lors de la visualisation.
+:::
+
+```{R}
 
 weather %>%
 ggplot(aes(x = PRCP)) +
@@ -83,14 +113,24 @@ x = "Précipitations (mm)",
 y = "Nombre d’observations"
 ) +
 theme_minimal()
+```
+::: {.callout-note}
+La distribution confirme la forte asymétrie, avec une majorité de valeurs proches de zéro et une longue queue associée à des événements extrêmes.
+:::
 
-
+## Corrélation entre variables
+```{R}
 weather %>%
 select(PRCP, SNOW, DAPR, MDPR) %>%
 cor(use = "complete.obs")
 
 ```
-# Convertir les colonnes numériques
+::: {.callout-note}
+La matrice de corrélation contient uniquement des valeurs manquantes, car il n’existe pas suffisamment d’observations complètes pour toutes les variables simultanément.
+Cela est dû au grand nombre de valeurs manquantes, notamment pour les températures apparentes.
+:::
+
+## Convertir les colonnes numériques
 
 ```{R}
 weather <- weather %>%
@@ -114,8 +154,9 @@ shapiro_test
 ```{R}
 weather <- weather %>% mutate(Month = month(DATE))
 ```
+# Analyse saisonnière : janvier vs juillet
 
-# Comparer PRCP entre janvier (1) et juillet (7)
+### Comparer PRCP entre janvier (1) et juillet (7)
 ```{R}
 jan_prcp <- weather %>% filter(Month == 1) %>% pull(PRCP)
 jul_prcp <- weather %>% filter(Month == 7) %>% pull(PRCP)
@@ -123,7 +164,10 @@ jul_prcp <- weather %>% filter(Month == 7) %>% pull(PRCP)
 t_test_result <- t.test(jan_prcp, jul_prcp, alternative = "two.sided", var.equal = FALSE)
 t_test_result
 ```
+
+::: {.callout-note}
 On teste si les précipitations en janvier diffèrent significativement de celles en juillet.
+:::
 
 # Régression linéaire simple (MDPR ~ DAPR)
 
@@ -134,8 +178,11 @@ drop_na(DAPR, MDPR)
 model <- lm(MDPR ~ DAPR, data = weather_lm)
 summary(model)
 ```
+::: {.callout-note}
+### interpretation
 
 On étudie la relation entre la température minimale apparente (DAPR) et la maximale apparente (MDPR).
+:::
 
 # Visualisation de la régression
 
@@ -156,4 +203,19 @@ theme_minimal()
 cor(weather_lm$DAPR, weather_lm$MDPR, use = "complete.obs")
 ```
 
+::: {.callout-note}
+
 La corrélation mesure la force et la direction de la relation linéaire entre DAPR et MDPR.
+
+La corrélation est faible et négative, confirmant l’absence de relation linéaire significative entre ces deux variables.
+:::
+::: {.callout-tip}
+# Conclusion
+
+Cette étude a permis d’explorer et d’analyser des données météorologiques issues d’une station située au Texas.  
+Les résultats mettent en évidence une forte asymétrie des précipitations, la présence d’événements extrêmes et un possible effet saisonnier entre l’hiver et l’été.
+
+Les analyses de corrélation et de régression n’ont pas révélé de relation significative entre les températures apparentes minimale et maximale, en partie à cause du nombre élevé de valeurs manquantes.
+
+Des perspectives d’amélioration incluent l’utilisation de tests non paramétriques, l’analyse de séries temporelles ou l’intégration d’autres variables météorologiques.
+:::
