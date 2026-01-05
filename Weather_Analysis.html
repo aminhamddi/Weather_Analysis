@@ -121,20 +121,24 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <table class="caption-top table table-sm table-striped small">
 <caption>Aperçu des 10 premières observations du dataset météo</caption>
 <colgroup>
-<col style="width: 7%">
 <col style="width: 6%">
 <col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 15%">
+<col style="width: 2%">
+<col style="width: 8%">
+<col style="width: 2%">
+<col style="width: 8%">
+<col style="width: 2%">
+<col style="width: 8%">
+<col style="width: 2%">
+<col style="width: 8%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 4%">
 <col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 18%">
-<col style="width: 3%">
-<col style="width: 9%">
-<col style="width: 3%">
-<col style="width: 9%">
-<col style="width: 3%">
-<col style="width: 9%">
-<col style="width: 3%">
-<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -152,6 +156,10 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <th style="text-align: left;">DAPR_ATTRIBUTES</th>
 <th style="text-align: right;">MDPR</th>
 <th style="text-align: left;">MDPR_ATTRIBUTES</th>
+<th style="text-align: left;">Month</th>
+<th style="text-align: right;">Year</th>
+<th style="text-align: left;">RainyDay</th>
+<th style="text-align: left;">ExtremeRain</th>
 </tr>
 </thead>
 <tbody>
@@ -170,6 +178,10 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <td style="text-align: left;">NA</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: left;">NA</td>
+<td style="text-align: left;">août</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">US1TXGS0046</td>
@@ -186,6 +198,10 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <td style="text-align: left;">NA</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: left;">NA</td>
+<td style="text-align: left;">août</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">US1TXGS0046</td>
@@ -202,6 +218,10 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <td style="text-align: left;">NA</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: left;">NA</td>
+<td style="text-align: left;">août</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">US1TXGS0046</td>
@@ -218,6 +238,10 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <td style="text-align: left;">,,N</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">,,N</td>
+<td style="text-align: left;">août</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">US1TXGS0046</td>
@@ -234,86 +258,10 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <td style="text-align: left;">NA</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">US1TXGS0046</td>
-<td style="text-align: left;">2013-08-31</td>
-<td style="text-align: right;">30.22662</td>
-<td style="text-align: right;">-99.01644</td>
-<td style="text-align: right;">537.1</td>
-<td style="text-align: left;">FREDERICKSBURG 9.1 WSW, TX US</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">US1TXGS0046</td>
-<td style="text-align: left;">2013-09-01</td>
-<td style="text-align: right;">30.22662</td>
-<td style="text-align: right;">-99.01644</td>
-<td style="text-align: right;">537.1</td>
-<td style="text-align: left;">FREDERICKSBURG 9.1 WSW, TX US</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">US1TXGS0046</td>
-<td style="text-align: left;">2013-09-02</td>
-<td style="text-align: right;">30.22662</td>
-<td style="text-align: right;">-99.01644</td>
-<td style="text-align: right;">537.1</td>
-<td style="text-align: left;">FREDERICKSBURG 9.1 WSW, TX US</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">US1TXGS0046</td>
-<td style="text-align: left;">2013-09-03</td>
-<td style="text-align: right;">30.22662</td>
-<td style="text-align: right;">-99.01644</td>
-<td style="text-align: right;">537.1</td>
-<td style="text-align: left;">FREDERICKSBURG 9.1 WSW, TX US</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">US1TXGS0046</td>
-<td style="text-align: left;">2013-09-04</td>
-<td style="text-align: right;">30.22662</td>
-<td style="text-align: right;">-99.01644</td>
-<td style="text-align: right;">537.1</td>
-<td style="text-align: left;">FREDERICKSBURG 9.1 WSW, TX US</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">,,N</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">août</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 </tbody>
 </table>
@@ -322,7 +270,7 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <p>Dimension du data set :</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3087   14</code></pre>
+<pre><code>[1] 3087   18</code></pre>
 </div>
 </div>
 <p>Le jeu de données contient 3087 observations et 14 variables, chaque ligne correspondant à une journée d’observation pour la station météorologique étudiée.</p>
@@ -412,9 +360,9 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 </tr>
 </tbody>
 </table>
-<p>Analyse descriptive des variables météorologiques</p>
+<p>#Analyse descriptive des variables météorologiques</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(weather <span class="sc">%&gt;%</span> <span class="fu">select</span>(PRCP, SNOW, DAPR, MDPR))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eda_summary</span>(weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      PRCP              SNOW          DAPR             MDPR       
  Min.   :   0.00   Min.   :0     Min.   : 2.000   Min.   :   0.0  
@@ -445,16 +393,12 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 </ul>
 </div>
 </div>
+</section>
+</section>
+<section id="évolution-temporelle-des-précipitations" class="level1">
+<h1>Évolution temporelle des précipitations</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>weather <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> DATE, <span class="at">y =</span> PRCP)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Évolution des précipitations dans le temps"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Date"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Précipitations (mm)"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_prcp_time</span>(weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
 (`geom_line()`).</code></pre>
@@ -462,7 +406,7 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Weather_Analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Weather_Analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -478,22 +422,17 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Le graphique montre une alternance de longues périodes sèches et d’épisodes de fortes précipitations.</li>
+<li>Le graphique met en évidence une alternance de longues périodes sèches et d’épisodes de fortes précipitations, caractéristique des climats semi-arides.</li>
 <li>Ces variations traduisent une pluviométrie irrégulière, typique des climats semi-arides à subtropicaux.</li>
 <li>Les valeurs manquantes sont automatiquement exclues lors de la visualisation.</li>
 </ul>
 </div>
 </div>
+</section>
+<section id="distribution-des-précipitations" class="level1">
+<h1>Distribution des précipitations</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>weather <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> PRCP)) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Distribution des précipitations"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Précipitations (mm)"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Nombre d’observations"</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_prcp_distribution</span>(weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 87 rows containing non-finite outside the scale range
 (`stat_bin()`).</code></pre>
@@ -501,7 +440,7 @@ Les données incluent des mesures comme température, humidité, vitesse du vent
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Weather_Analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Weather_Analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -519,19 +458,19 @@ Note
 <p>La distribution confirme la forte asymétrie, avec une majorité de valeurs proches de zéro et une longue queue associée à des événements extrêmes.</p>
 </div>
 </div>
-</section>
-<section id="corrélation-entre-variables" class="level2">
-<h2 class="anchored" data-anchor-id="corrélation-entre-variables">Corrélation entre variables</h2>
+<p>#Analyse saisonnière</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>weather <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(PRCP, SNOW, DAPR, MDPR) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     PRCP SNOW DAPR MDPR
-PRCP   NA   NA   NA   NA
-SNOW   NA   NA   NA   NA
-DAPR   NA   NA   NA   NA
-MDPR   NA   NA   NA   NA</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_prcp_by_month</span>(weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 87 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Weather_Analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -544,25 +483,12 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La matrice de corrélation contient uniquement des valeurs manquantes, car il n’existe pas suffisamment d’observations complètes pour toutes les variables simultanément. Cela est dû au grand nombre de valeurs manquantes, notamment pour les températures apparentes.</p>
+<p>Les mois estivaux présentent une variabilité plus élevée des précipitations, suggérant une saisonnalité marquée.</p>
 </div>
 </div>
-</section>
-<section id="convertir-les-colonnes-numériques" class="level2">
-<h2 class="anchored" data-anchor-id="convertir-les-colonnes-numériques">Convertir les colonnes numériques</h2>
+<p>#Tests statistiques</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>weather <span class="ot">&lt;-</span> weather <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">PRCP =</span> <span class="fu">as.numeric</span>(PRCP),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">SNOW =</span> <span class="fu">as.numeric</span>(SNOW),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">DAPR =</span> <span class="fu">as.numeric</span>(DAPR),</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">MDPR =</span> <span class="fu">as.numeric</span>(MDPR)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Ces statistiques donnent une idée de la tendance centrale et de la dispersion des précipitations.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>shapiro_test <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(<span class="fu">na.omit</span>(weather<span class="sc">$</span>PRCP))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>shapiro_test</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_normality_prcp</span>(weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -571,36 +497,28 @@ data:  na.omit(weather$PRCP)
 W = 0.32042, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="extraire-le-mois" class="level1">
-<h1>Extraire le mois</h1>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>weather <span class="ot">&lt;-</span> weather <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">month</span>(DATE))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="analyse-saisonnière-janvier-vs-juillet" class="level1">
-<h1>Analyse saisonnière : janvier vs juillet</h1>
-<section id="comparer-prcp-entre-janvier-1-et-juillet-7" class="level3">
-<h3 class="anchored" data-anchor-id="comparer-prcp-entre-janvier-1-et-juillet-7">Comparer PRCP entre janvier (1) et juillet (7)</h3>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le test de Shapiro-Wilk rejette l’hypothèse de normalité des précipitations. Des tests non paramétriques sont donc plus appropriés.</p>
+</div>
+</div>
+<p>#Effet du mois sur les précipitations</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>jan_prcp <span class="ot">&lt;-</span> weather <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Month <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(PRCP)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>jul_prcp <span class="ot">&lt;-</span> weather <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Month <span class="sc">==</span> <span class="dv">7</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(PRCP)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>t_test_result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(jan_prcp, jul_prcp, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>t_test_result</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_seasonality</span>(weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Welch Two Sample t-test
+    Kruskal-Wallis rank sum test
 
-data:  jan_prcp and jul_prcp
-t = -1.964, df = 328.67, p-value = 0.05037
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -27.53397796   0.02221946
-sample estimates:
-mean of x mean of y 
- 12.51838  26.27426 </code></pre>
+data:  PRCP by Month
+Kruskal-Wallis chi-squared = 50.91, df = 11, p-value = 4.291e-07</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -613,19 +531,74 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On teste si les précipitations en janvier diffèrent significativement de celles en juillet.</p>
+<p>Le test de Kruskal-Wallis indique une différence significative des précipitations selon les mois de l’année.</p>
 </div>
 </div>
 </section>
-</section>
-<section id="régression-linéaire-simple-mdpr-dapr" class="level1">
-<h1>Régression linéaire simple (MDPR ~ DAPR)</h1>
+<section id="corrélations-non-paramétriques" class="level1">
+<h1>Corrélations non paramétriques</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>weather_lm <span class="ot">&lt;-</span> weather <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">drop_na</span>(DAPR, MDPR)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(MDPR <span class="sc">~</span> DAPR, <span class="at">data =</span> weather_lm)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">compute_correlations</span>(weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]   NA   NA   NA
+[2,]   NA   NA   NA
+[3,]   NA   NA   NA</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les corrélations de Spearman entre précipitations et températures sont faibles, confirmant l’absence de relation linéaire directe.</p>
+</div>
+</div>
+<p>#Analyse des événements extrêmes</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extreme_rain_by_month</span>(weather)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   Month     n
+   &lt;ord&gt; &lt;int&gt;
+ 1 janv      8
+ 2 févr      6
+ 3 mars      7
+ 4 avr      14
+ 5 mai      29
+ 6 juin     14
+ 7 juil     11
+ 8 août     13
+ 9 sept     19
+10 oct      11
+11 nov      10
+12 déc       9</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les événements de précipitations extrêmes sont majoritairement concentrés durant la période estivale (mai à septembre).</p>
+</div>
+</div>
+</section>
+<section id="régression-linéaire-mdpr-dapr" class="level1">
+<h1>Régression linéaire (MDPR ~ DAPR)</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>reg_results <span class="ot">&lt;-</span> <span class="fu">run_temperature_regression</span>(weather)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>reg_results<span class="sc">$</span>summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -664,33 +637,16 @@ F-statistic: 1.447 on 1 and 85 DF,  p-value: 0.2324</code></pre>
 <section id="visualisation-de-la-régression" class="level1">
 <h1>Visualisation de la régression</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(weather_lm, <span class="fu">aes</span>(<span class="at">x =</span> DAPR, <span class="at">y =</span> MDPR)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Régression linéaire : MDPR en fonction de DAPR"</span>,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"DAPR (°C)"</span>,</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"MDPR (°C)"</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_regression</span>(reg_results<span class="sc">$</span>data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Weather_Analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Weather_Analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
-</div>
-</div>
-</section>
-<section id="corrélation-entre-variables-1" class="level1">
-<h1>Corrélation entre variables</h1>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(weather_lm<span class="sc">$</span>DAPR, weather_lm<span class="sc">$</span>MDPR, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1293754</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -703,26 +659,14 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La corrélation mesure la force et la direction de la relation linéaire entre DAPR et MDPR.</p>
-<p>La corrélation est faible et négative, confirmant l’absence de relation linéaire significative entre ces deux variables.</p>
+<p>La régression linéaire ne révèle pas de relation significative entre les températures apparentes minimale et maximale, en partie à cause du nombre élevé de valeurs manquantes.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Conclusion
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Cette étude a permis d’explorer et d’analyser des données météorologiques issues d’une station située au Texas.<br>
-Les résultats mettent en évidence une forte asymétrie des précipitations, la présence d’événements extrêmes et un possible effet saisonnier entre l’hiver et l’été.</p>
-<p>Les analyses de corrélation et de régression n’ont pas révélé de relation significative entre les températures apparentes minimale et maximale, en partie à cause du nombre élevé de valeurs manquantes.</p>
-<p>Des perspectives d’amélioration incluent l’utilisation de tests non paramétriques, l’analyse de séries temporelles ou l’intégration d’autres variables météorologiques.</p>
-</div>
-</div>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Cette étude met en évidence une structure saisonnière marquée des précipitations pour la station US1TXGS0046. Bien que les corrélations linéaires soient faibles, l’analyse non paramétrique révèle une concentration des événements extrêmes durant les mois estivaux.</p>
+<p>Ces résultats soulignent l’importance d’approches exploratoires et statistiques adaptées pour l’analyse des données climatiques.</p>
+</section>
 </section>
 
 </main>
