@@ -73,3 +73,12 @@ Le projet suit les étapes suivantes :
 ---
 
 ## Structure du projet
+
+├── data/ # Données brutes
+├── src/ # Scripts R (chargement, EDA, statistiques, régression)
+├── report/ # Rapport Quarto (.qmd)
+└── README.md
+
+👤 Auteur
+
+Amine Hamdi
