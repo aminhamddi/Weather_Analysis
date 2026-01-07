@@ -1,0 +1,183 @@
+---
+title: "Analyse des données météo US1TXGS0046"
+author: "Amine Hamdi"
+format: html
+editor: visual
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+source("src/data_loading.R")
+source("src/eda.R")
+source("src/statistics.R")
+source("src/regression.R")
+```
+
+# Introduction
+
+Ce projet analyse les données météo provenant de la station **US1TXGS0046** située au **Texas, USA**.\
+Les données incluent des mesures comme température, humidité, vitesse du vent, rayonnement solaire, etc., enregistrées sur plusieurs années.
+
+L’analyse porte principalement sur les précipitations, la neige et les températures apparentes. Ce travail s’inscrit dans une démarche d’analyse exploratoire des données (EDA) complétée par des tests statistiques et une modélisation linéaire, afin de mettre en évidence des tendances climatiques et d’éventuelles relations entre variables météorologiques.
+
+Source du dataset : [NOAA Global Historical Weather](https://www.ncei.noaa.gov/access).
+
+![Carte du Texas](https://gisgeography.com/wp-content/uploads/2013/02/Texas-Map-1536x1455.jpg)\
+*Localisation approximative de la zone étudiée.*
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+weather <- load_weather_data("data/US1TXGS0046.csv")
+```
+
+## Aperçu du dataset
+
+```{R, echo=FALSE}
+knitr::kable(
+  head(weather, 5),
+  caption = "Aperçu des 10 premières observations du dataset météo"
+)
+```
+
+Dimension du data set :
+
+```{R, echo=FALSE}
+dim(weather)
+```
+
+Le jeu de données contient 3087 observations et 14 variables, chaque ligne correspondant à une journée d’observation pour la station météorologique étudiée.
+
+| Colonne         | Type | Description courte                   |
+|-----------------|------|--------------------------------------|
+| STATION         | chr  | Code de la station météo             |
+| DATE            | date | Date d’observation                   |
+| LATITUDE        | dbl  | Latitude de la station               |
+| LONGITUDE       | dbl  | Longitude de la station              |
+| ELEVATION       | dbl  | Altitude de la station (en mètres)   |
+| NAME            | chr  | Nom de la station                    |
+| PRCP            | dbl  | Précipitations (mm)                  |
+| PRCP_ATTRIBUTES | chr  | Qualité / source des données de PRCP |
+| SNOW            | dbl  | Quantité de neige (mm)               |
+| SNOW_ATTRIBUTES | chr  | Qualité / source des données de SNOW |
+| DAPR            | dbl  | Minimum température apparente (°C)   |
+| DAPR_ATTRIBUTES | chr  | Qualité / source des données DAPR    |
+| MDPR            | dbl  | Maximum température apparente (°C)   |
+| MDPR_ATTRIBUTES | chr  | Qualité / source des données MDPR    |
+
+#Analyse descriptive des variables météorologiques
+
+```{R}
+eda_summary(weather)
+```
+
+::: callout-note
+### Interprétation
+
+-   La médiane des précipitations est **nulle**, ce qui indique que la majorité des journées sont sèches.
+-   La moyenne élevée et la valeur maximale importante traduisent la présence d’**événements de précipitations extrêmes**.
+-   La distribution des précipitations est **fortement asymétrique à droite**.
+-   La quasi-absence de neige est cohérente avec la localisation de la station au Texas.
+-   Le grand nombre de valeurs manquantes pour les températures apparentes impacte la robustesse des analyses de corrélation et de régression.
+:::
+
+# Évolution temporelle des précipitations
+
+```{R}
+plot_prcp_time(weather)
+```
+
+::: callout-note
+### Analyse
+
+-   Le graphique met en évidence une alternance de longues périodes sèches et d’épisodes de fortes précipitations, caractéristique des climats semi-arides.
+-   Ces variations traduisent une pluviométrie irrégulière, typique des climats semi-arides à subtropicaux.
+-   Les valeurs manquantes sont automatiquement exclues lors de la visualisation.
+:::
+
+# Distribution des précipitations
+
+```{R}
+plot_prcp_distribution(weather)
+```
+
+::: callout-note
+La distribution confirme la forte asymétrie, avec une majorité de valeurs proches de zéro et une longue queue associée à des événements extrêmes.
+:::
+
+#Analyse saisonnière
+
+```{R}
+plot_prcp_by_month(weather)
+```
+
+::: callout-note
+Les mois estivaux présentent une variabilité plus élevée des précipitations, suggérant une saisonnalité marquée.
+:::
+
+#Tests statistiques
+
+```{R}
+test_normality_prcp(weather)
+```
+
+::: callout-warning
+Le test de Shapiro-Wilk rejette l’hypothèse de normalité des précipitations. Des tests non paramétriques sont donc plus appropriés.
+:::
+
+#Effet du mois sur les précipitations
+
+```{R}
+test_seasonality(weather)
+```
+
+::: callout-note
+Le test de Kruskal-Wallis indique une différence significative des précipitations selon les mois de l’année.
+:::
+
+# Corrélations non paramétriques
+
+```{R}
+compute_correlations(weather)
+```
+
+::: callout-note
+Les corrélations de Spearman entre précipitations et températures sont faibles, confirmant l’absence de relation linéaire directe.
+:::
+
+#Analyse des événements extrêmes
+
+```{R}
+extreme_rain_by_month(weather)
+```
+
+::: callout-note
+Les événements de précipitations extrêmes sont majoritairement concentrés durant la période estivale (mai à septembre).
+:::
+
+# Régression linéaire (MDPR \~ DAPR)
+
+```{R}
+reg_results <- run_temperature_regression(weather)
+reg_results$summary
+```
+
+::: callout-note
+### interpretation
+
+On étudie la relation entre la température minimale apparente (DAPR) et la maximale apparente (MDPR).
+:::
+
+# Visualisation de la régression
+
+```{R}
+plot_regression(reg_results$data)
+```
+
+::: callout-note
+La régression linéaire ne révèle pas de relation significative entre les températures apparentes minimale et maximale, en partie à cause du nombre élevé de valeurs manquantes.
+:::
+
+## Conclusion
+
+Cette étude met en évidence une structure saisonnière marquée des précipitations pour la station US1TXGS0046. Bien que les corrélations linéaires soient faibles, l’analyse non paramétrique révèle une concentration des événements extrêmes durant les mois estivaux.
+
+Ces résultats soulignent l’importance d’approches exploratoires et statistiques adaptées pour l’analyse des données climatiques.
